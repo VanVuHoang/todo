@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/product/">
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'home/todo.css' %}" rel="stylesheet">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+
+</head>
+<style>
+.Intro{
+    width: 100%;
+    height: 100px;
+}
+.TodoDiv1{
+    width: 100%;
+}
+.TodoDiv1-1{
+    width: 50%;
+    float: left;
+}
+.TodoDiv1-2{
+    width: 50%;
+    float: left;
+}
+</style>
+
+<body>
+    <div class="Intro">
+        {% block intro %}
+        {% endblock %}
+    </div>
+    <div class="TodoDiv1">
+        <div class="TodoDiv1-1">
+            {% block worklist %}
+            {% endblock %}
+        </div>
+        <div class="TodoDiv1-2">
+            {% block input %}
+            {% endblock %}
+        </div>
+    </div>
+</body>

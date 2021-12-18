@@ -1,0 +1,42 @@
+{% extends "pages/base2.html" %}
+{% load crispy_forms_filters %}
+{% block title %}
+    ToDo
+{% endblock %}
+
+{% block intro %}
+    <center class="row" style="text-align: center">
+        <h1 style="margin-left: 30px; margin-top: 30px; color: deeppink"><i>TODO LIST</i></h1>
+    </center>
+    <hr>
+{% endblock %}
+
+{% block worklist %}
+
+        <div class="row" style="margin-left: 200px; margin-top: 30px">
+            <div class="col-md-8">
+                {% for task in task_list %}
+                    <center class="card">
+                            <b style="margin-top: 10px">{{ task.title }}</b>
+                            <hr>
+                            {{ task.contents }}
+                            <hr>
+                            {{ task.date }}
+                            <br/>
+                            <br/>
+                    </center>
+                {% endfor %}
+            </div>
+        </div>
+
+{% endblock %}
+
+{% block input %}
+    <form method = "POST">
+        {% csrf_token %}
+        {{forms|crispy}}
+        <center>
+            <input type="submit" style="background-color: lightpink; margin-top: 10px;" class="btn btn-default" value="Submit">
+        </center>
+    </form>
+{% endblock %}

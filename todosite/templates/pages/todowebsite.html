@@ -16,7 +16,7 @@
         <div class="row" style="margin-left: 200px; margin-top: 30px">
             <div class="col-md-8">
                 {% for task in task_list %}
-                    <center class="card">
+                    <div class="card" style="text-align: center;">
                             <b style="margin-top: 10px">{{ task.title }}</b>
                             <hr>
                             {{ task.contents }}
@@ -24,7 +24,12 @@
                             {{ task.date }}
                             <br/>
                             <br/>
-                    </center>
+                        <form action="/del/{{ task.id }}" method="POST">
+                        {% csrf_token %}
+                        <button value="Remove" type="submit"  style="background-color: green; margin-left: 250px; width:40px; height: 40px" class="btn btn-default"></button>
+                            <button value="Done" type="submit"  style="background-color: red; width:40px; height: 40px" class="btn btn-default"></button>
+                    </form>
+                    </div>
                 {% endfor %}
             </div>
         </div>
@@ -35,8 +40,8 @@
     <form method = "POST">
         {% csrf_token %}
         {{forms|crispy}}
-        <center>
+        <div style="text-align: center;">
             <input type="submit" style="background-color: lightpink; margin-top: 10px;" class="btn btn-default" value="Submit">
-        </center>
+        </div>
     </form>
 {% endblock %}

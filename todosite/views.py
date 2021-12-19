@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import render, redirect
 from .models import Task
 from .forms import TaskForm
@@ -22,3 +23,10 @@ def submit(request):
     except Task.DoesNotExist:
         raise Http404("Task does not exist")
     return render(request, 'pages/todowebsite.html', page)
+
+def remove(request, item_id):
+    item = Task.objects.get(id=item_id)
+    item.delete()
+    messages.info(request, "Item removed!")
+    return redirect('todosite')
+

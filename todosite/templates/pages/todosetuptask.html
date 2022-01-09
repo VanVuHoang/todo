@@ -1,0 +1,27 @@
+{% extends "pages/setuptaskbase.html" %}
+{% block title %}
+    ToDo Task
+{% endblock %}
+
+{% block input %}
+    <form action="/todosite/" method="POST">
+        {% csrf_token %}
+        <center><h3 style="margin-top: 25px; color: green;">Set Up Task</h3></center>
+        <div class="form-floating">
+            <input type="input" class="form-control" id="floatingInput" style="margin-top: 20px; width: 450px;" required>
+            <label>Title</label>
+        </div>
+        <div class="form-floating">
+            <input type="input" class="form-control" id="floatingInput" style="margin-top: 20px; height: 150px;" required>
+            <label style="padding-top: 50px;">Contents</label>
+        </div>
+        <div class="form-floating">
+            <input type="input" class="form-control" id="floatingInput" style="margin-top: 20px; height: 150px;" required>
+            <label style="padding-top: 50px;">Notes</label>
+        </div>
+        <div class="form-floating">
+            <center><input type="submit" style="background-color: lightpink; margin-top: 20px; width: 300px;" 
+            class="btn btn-default" value="Submit"></center>
+        </div>
+    </form>
+{% endblock %}

@@ -1,34 +1,37 @@
 {% extends "pages/base2.html" %}
-{% load crispy_forms_filters %}
 {% block title %}
-    ToDo
+    ToDo List
 {% endblock %}
 
 {% block intro %}
     <center class="row" style="text-align: center">
-        <h1 style="margin-left: 30px; margin-top: 30px; color: deeppink"><i>TODO LIST</i></h1>
+        <h1 style="margin-top: 30px; color: deeppink"><i>TODO LIST</i></h1>
     </center>
     <hr>
 {% endblock %}
 
 {% block worklist %}
-
-        <div class="row" style="margin-left: 200px; margin-top: 30px">
+        <center class="row" style="text-align: center">
+            <h1 style="margin-top: 30px; margin-left: 30px; color: pink"><i>IN PROGRESS</i></h1>
+        </center>
+        <div class="row" style="padding-left: 200px; margin-top: 30px;">
             <div class="col-md-8">
                 {% for task in task_list %}
-                    <div class="card" style="text-align: center;">
+                    <div class="card" style="text-align: center; background-color: pink;">
                             <b style="margin-top: 10px">{{ task.title }}</b>
                             <hr>
                             {{ task.contents }}
                             <hr>
-                            {{ task.date }}
-                            <br/>
-                            <br/>
-                        <form action="/del/{{ task.id }}" method="POST">
-                        {% csrf_token %}
-                        <button value="Remove" type="submit"  style="background-color: green; margin-left: 250px; width:40px; height: 40px" class="btn btn-default"></button>
-                            <button value="Done" type="submit"  style="background-color: red; width:40px; height: 40px" class="btn btn-default"></button>
-                    </form>
+                            <div>
+                                {{ task.date }}
+                                <form action="/del/{{ task.id }}" method="POST">
+                                    {% csrf_token %}
+                                    <right></right><button type="submit" style="background-color: red; width: 40px; height: 40px; 
+                                    margin-left: 223px;" class="btn btn-default"></button>
+                                </form>
+                            </div>
+                            <center><div style="background-color: white; height: 20px; width: 326px; margin-left: -2.5px;">
+                            </div></center>
                     </div>
                 {% endfor %}
             </div>
@@ -36,12 +39,52 @@
 
 {% endblock %}
 
+{% block button %}
+<form action="/setuptask/">
+    {% csrf_token %}
+    <center>
+        <input value="Set Up Task" type="submit" style="background-color: orange; width: 200px; height: 40px; 
+        margin-top: 30px;" class="btn btn-default">
+        </input>
+    </center>
+</form>
+{% endblock %}
+
+{% block button2 %}
+<form action="/admin/">
+    {% csrf_token %}
+    <center>
+        <input value="Admin" type="submit" style="background-color: orange; width: 200px; height: 40px; 
+        margin-top: 30px;" class="btn btn-default">
+        </input>
+    </center>
+</form>
+{% endblock %}
+
 {% block input %}
-    <form method = "POST">
-        {% csrf_token %}
-        {{forms|crispy}}
-        <div style="text-align: center;">
-            <input type="submit" style="background-color: lightpink; margin-top: 10px;" class="btn btn-default" value="Submit">
+        <center class="row" style="text-align: center">
+            <h1 style="margin-top: 30px; margin-left: -45px; color: deepskyblue"><i>COMPLETE</i></h1>
+        </center>
+        <div class="row" style="padding-left: 130px; padding-right: 70px; margin-top: 30px;">
+            <div class="col-md-8">
+                {% for task in task_list %}
+                    <div class="card" style="text-align: center; background-color: cyan;">
+                            <b style="margin-top: 10px">{{ task.title }}</b>
+                            <hr>
+                            {{ task.contents }}
+                            <hr>
+                            <div>
+                                {{ task.date }}
+                                <form action="/del/{{ task.id }}/" method="POST">
+                                    {% csrf_token %}
+                                    <button type="submit" style="background-color: red; width: 40px; height: 40px; 
+                                    margin-left: 223px;" class="btn btn-default"></button>
+                                </form>
+                            </div>
+                            <center><div style="background-color: white; height: 20px; width: 326px; margin-left: -2.5px;">
+                            </div></center>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
-    </form>
 {% endblock %}

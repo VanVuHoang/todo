@@ -3,22 +3,27 @@
     ToDo List
 {% endblock %}
 
-{% block intro %}
-    <center class="row" style="text-align: center">
-        <h1 style="margin-top: 30px; color: deeppink"><i>TODO LIST</i></h1>
-    </center>
-    <hr>
-{% endblock %}
-
-{% block worklist %}
+{% block content %}
+<div class="TodoDiv">
+    <div class="Intro">
         <center class="row" style="text-align: center">
-            <h1 style="margin-top: 30px; margin-left: 30px; color: pink"><i>IN PROGRESS</i></h1>
+            <h1 style="margin-top: 30px; color: deeppink"><i>TODO LIST</i></h1>
         </center>
-        <div class="row" style="padding-left: 200px; margin-top: 30px;">
-            <div class="col-md-8">
-                {% for task in task_list %}
-                    <div class="card" style="text-align: center; background-color: pink;">
-                            <b style="margin-top: 10px">{{ task.title }}</b>
+        <hr>
+    </div>
+
+    <div class="TodoDiv1">
+        <div class="TodoDiv1-1">
+            <center class="row" style="text-align: center">
+                <h1 style="color: red"><i>In Progress</i></h1>
+            </center>
+            <div class="row" style="padding-left: 25%; margin-top: 4%;">
+                <div class="col-md-8" style="background-color: rgb(218, 213, 213); background-image: url(static/home/img/rock1.jpg);">
+                    {% for task in task_list %}
+                        <br/>
+                        <div style="text-align: center; margin-left: 30px; margin-right: 30px; background-color: white; 
+                        background-image: url(static/home/img/paperwall1.jpg);">
+                            <b style="margin-top: 2%">{{ task.title }}</b>
                             <hr>
                             {{ task.contents }}
                             <hr>
@@ -26,65 +31,48 @@
                                 {{ task.date }}
                                 <form action="/del/{{ task.id }}" method="POST">
                                     {% csrf_token %}
-                                    <right></right><button type="submit" style="background-color: red; width: 40px; height: 40px; 
-                                    margin-left: 223px;" class="btn btn-default"></button>
+                                    <br/>
+                                        <button type="submit" style="background-color: blue; width: 150px; height: 40px; 
+                                        margin-left: 1%;" class="btn btn-default">
+                                            <span style="color: white;">Update</span>
+                                        </button>
+                                        <button type="submit" style="background-color: red; width: 150px; height: 40px; 
+                                        margin-left: 1%;" class="btn btn-default">
+                                            <span style="color: white;">Delete</span>
+                                        </button>
                                 </form>
                             </div>
-                            <center><div style="background-color: white; height: 20px; width: 326px; margin-left: -2.5px;">
-                            </div></center>
-                    </div>
-                {% endfor %}
+                            <div style="background-color: rgb(218, 213, 213);"><br/></div>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
 
-{% endblock %}
-
-{% block button %}
-<form action="/setuptask/">
-    {% csrf_token %}
-    <center>
-        <input value="Set Up Task" type="submit" style="background-color: orange; width: 200px; height: 40px; 
-        margin-top: 30px;" class="btn btn-default">
-        </input>
-    </center>
-</form>
-{% endblock %}
-
-{% block button2 %}
-<form action="/admin/">
-    {% csrf_token %}
-    <center>
-        <input value="Admin" type="submit" style="background-color: orange; width: 200px; height: 40px; 
-        margin-top: 30px;" class="btn btn-default">
-        </input>
-    </center>
-</form>
-{% endblock %}
-
-{% block input %}
-        <center class="row" style="text-align: center">
-            <h1 style="margin-top: 30px; margin-left: -45px; color: deepskyblue"><i>COMPLETE</i></h1>
-        </center>
-        <div class="row" style="padding-left: 130px; padding-right: 70px; margin-top: 30px;">
-            <div class="col-md-8">
-                {% for task in task_list %}
-                    <div class="card" style="text-align: center; background-color: cyan;">
-                            <b style="margin-top: 10px">{{ task.title }}</b>
-                            <hr>
-                            {{ task.contents }}
-                            <hr>
-                            <div>
-                                {{ task.date }}
-                                <form action="/del/{{ task.id }}/" method="POST">
-                                    {% csrf_token %}
-                                    <button type="submit" style="background-color: red; width: 40px; height: 40px; 
-                                    margin-left: 223px;" class="btn btn-default"></button>
-                                </form>
-                            </div>
-                            <center><div style="background-color: white; height: 20px; width: 326px; margin-left: -2.5px;">
-                            </div></center>
+        <div class="TodoDiv1-2">
+            <form action="/todosite/" method="POST">
+                {% csrf_token %}
+                <center><h3 style="margin-top: 3.5%; color: green;">Set Up Task</h3></center>
+                <div style="padding-left: 10%;">
+                    <div class="form-floating">
+                        <input type="input" class="form-control" id="floatingInput" style="margin-top: 3%; width: 74.25%;" required>
+                        <label>Title</label>
                     </div>
-                {% endfor %}
-            </div>
+                    <div class="form-floating">
+                        <input type="input" class="form-control" id="floatingInput" style="margin-top: 3%; width: 83%; height: 150px;" required>
+                        <label style="padding-top: 7%;">Contents</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="input" class="form-control" id="floatingInput" style="margin-top: 3%; width: 83%; height: 100px;">
+                        <label>Notes</label>
+                    </div>
+                </div>
+                <div class="form-floating">
+                    <center><input type="submit" style="background-color: lightpink; width: 30%; margin-top: 3%;" 
+                    class="btn btn-default" value="Submit"></center>
+                </div>
+            </form>
         </div>
+    </div>
+</div>
 {% endblock %}

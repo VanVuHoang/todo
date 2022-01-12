@@ -9,6 +9,7 @@
     <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'vendor/bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'home/todowebsite.css' %}" rel="stylesheet">
 
     <title>
         {% block title %}
@@ -16,45 +17,7 @@
     </title>
 
 </head>
-<style>
-.Intro{
-    background-color: none;
-}
-.TodoDiv1{
-    background-color: none;
-}
-.TodoDiv1-1{
-    width: 40%;
-    float: left;
-}
-.TodoDiv1-2{
-    width: 40%;
-    float: left;
-}
-.TodoDivEX{
-    width: 20%;
-    float: left;
-}
-</style>
 <body>
-    <div class="Intro">
-        {% block intro %}
-        {% endblock %}
-    </div>
-    <div class="TodoDiv1">
-        <div class="TodoDiv1-1">
-            {% block worklist %}
-            {% endblock %}
-        </div>
-        <div class="TodoDivEX">
-            {% block button %}
-            {% endblock %}
-            {% block button2 %}
-            {% endblock %}
-        </div>
-        <div class="TodoDiv1-2">
-            {% block input %}
-            {% endblock %}
-        </div>
-    </div>
+    {% block content %}
+    {% endblock %}
 </body>

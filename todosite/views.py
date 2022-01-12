@@ -31,6 +31,3 @@ def remove(request, item_id):
     item.delete()
     return redirect('todosite')
 
-class SetUpTask(TemplateView):
-     template_name = "pages/todosetuptask.html"
-

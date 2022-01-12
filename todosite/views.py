@@ -14,7 +14,7 @@ def submit(request):
             formtask = TaskForm(request.POST)
             if formtask.is_valid():
                 formtask.save()
-                return redirect('todosite')
+                return redirect('')
         formtask = TaskForm()
         page = {
             "formtask": formtask,
@@ -26,8 +26,14 @@ def submit(request):
 
     return render(request, 'pages/todowebsite.html', page)
 
-def remove(request, item_id):
+def removetask(request, item_id):
     item = Task.objects.get(id=item_id)
     item.delete()
-    return redirect('todosite')
+    return redirect('')
 
+def addtask(request):
+    x = request.POST['title']
+    y = request.POST['contents']
+    item = Task(title = x, contents = y)
+    item.save()
+    return redirect('')

@@ -29,8 +29,8 @@
                             <hr>
                             <div>
                                 {{ task.date }}
-                                <form action="/del/{{ task.id }}" method="POST">
                                     {% csrf_token %}
+                                    <form action="/del/{{ task.id }}" method="POST">
                                     <br/>
                                         <button type="submit" style="background-color: blue; width: 150px; height: 40px; 
                                         margin-left: 1%;" class="btn btn-default">
@@ -40,7 +40,7 @@
                                         margin-left: 1%;" class="btn btn-default">
                                             <span style="color: white;">Delete</span>
                                         </button>
-                                </form>
+                                    </form>
                             </div>
                             <div style="background-color: rgb(218, 213, 213);"><br/></div>
                         </div>
@@ -50,28 +50,24 @@
         </div>
 
         <div class="TodoDiv1-2">
-            <form action="/todosite/" method="POST">
-                {% csrf_token %}
-                <center><h3 style="margin-top: 3.5%; color: green;">Set Up Task</h3></center>
-                <div style="padding-left: 10%;">
-                    <div class="form-floating">
-                        <input type="input" class="form-control" id="floatingInput" style="margin-top: 3%; width: 74.25%;" required>
-                        <label>Title</label>
+            <center><h3 style="margin-top: 3.5%; color: green;">Set Up Task</h3></center>
+            <div class="form-floating">
+                <form action="/add/" method="POST">
+                    {% csrf_token %}
+                    <div style="padding-left: 10%;">
+                        <div class="form-floating">
+                            <input type="input" class="form-control" id="floatingInput" style="margin-top: 3%; width: 74.25%;" required>
+                            <label>Title</label>
+                        </div>
+                        <div class="form-floating">
+                            <input type="input" class="form-control" id="floatingInput" style="margin-top: 3%; width: 83%; height: 150px;" required>
+                            <label style="padding-top: 7%;">Contents</label>
+                        </div>
                     </div>
-                    <div class="form-floating">
-                        <input type="input" class="form-control" id="floatingInput" style="margin-top: 3%; width: 83%; height: 150px;" required>
-                        <label style="padding-top: 7%;">Contents</label>
-                    </div>
-                    <div class="form-floating">
-                        <input type="input" class="form-control" id="floatingInput" style="margin-top: 3%; width: 83%; height: 100px;">
-                        <label>Notes</label>
-                    </div>
-                </div>
-                <div class="form-floating">
                     <center><input type="submit" style="background-color: lightpink; width: 30%; margin-top: 3%;" 
                     class="btn btn-default" value="Submit"></center>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 </div>

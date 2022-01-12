@@ -51,23 +51,23 @@
 
         <div class="TodoDiv1-2">
             <center><h3 style="margin-top: 3.5%; color: green;">Set Up Task</h3></center>
-            <div class="form-floating">
-                <form action="/add/" method="POST">
-                    {% csrf_token %}
-                    <div style="padding-left: 10%;">
-                        <div class="form-floating">
-                            <input type="input" class="form-control" id="floatingInput" style="margin-top: 3%; width: 74.25%;" required>
-                            <label>Title</label>
-                        </div>
-                        <div class="form-floating">
-                            <input type="input" class="form-control" id="floatingInput" style="margin-top: 3%; width: 83%; height: 150px;" required>
-                            <label style="padding-top: 7%;">Contents</label>
-                        </div>
+            <form action="/add/" method="POST">
+                {% csrf_token %}
+                <div style="padding-left: 10%;">
+                    <div class="form-floating">
+                        <input type="input" class="form-control" id="floatingInput" style="margin-top: 3%; width: 74.25%;" required>
+                        <label>Title</label>
                     </div>
+                    <div class="form-floating">
+                        <input type="input" class="form-control" id="floatingInput" style="margin-top: 3%; width: 83%; height: 150px;" required>
+                        <label style="padding-top: 7%;">Contents</label>
+                    </div>
+                </div>
+                <div class="form-floating">
                     <center><input type="submit" style="background-color: lightpink; width: 30%; margin-top: 3%;" 
                     class="btn btn-default" value="Submit"></center>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>

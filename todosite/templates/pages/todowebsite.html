@@ -18,7 +18,7 @@
                 <h1 style="color: red"><i>In Progress</i></h1>
             </center>
             <div class="row" style="padding-left: 25%; margin-top: 4%;">
-                <div class="col-md-8" style="background-color: rgb(218, 213, 213); background-image: url(static/home/img/rock1.jpg);">
+                <div class="col-md-8" style="background-color: rgb(218, 213, 213);" id="rock";>
                     {% for task in task_list %}
                         <br/>
                         <div style="text-align: center; margin-left: 30px; margin-right: 30px; background-color: white; 
@@ -29,13 +29,17 @@
                             <hr>
                             <div>
                                 {{ task.date }}
-                                    {% csrf_token %}
-                                    <form action="/del/{{ task.id }}" method="POST">
                                     <br/>
+                                    <!-- Cai form nay con dang fix -->
+                                    <!-- <form action="/???/{{ task.id }}" method="POST"> -->
+                                        {% csrf_token %}
                                         <button type="submit" style="background-color: blue; width: 150px; height: 40px; 
                                         margin-left: 1%;" class="btn btn-default">
                                             <span style="color: white;">Update</span>
                                         </button>
+                                    <!-- </form> -->
+                                    <form action="/del/{{ task.id }}" method="POST">
+                                        {% csrf_token %}
                                         <button type="submit" style="background-color: red; width: 150px; height: 40px; 
                                         margin-left: 1%;" class="btn btn-default">
                                             <span style="color: white;">Delete</span>

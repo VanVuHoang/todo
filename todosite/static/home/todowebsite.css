@@ -12,7 +12,6 @@
     width: 50%;
     float: left;
 }
-/* .TodoDivEX{
-    width: 20%;
-    float: left;
-} */
+#rock{
+    background-image: url("home/img/rock1.jpg");
+}

@@ -29,11 +29,11 @@ def submit(request):
 def removetask(request, item_id):
     item = Task.objects.get(id=item_id)
     item.delete()
-    return redirect('')
+    return redirect('todosite')
 
 def addtask(request):
     x = request.POST['title']
     y = request.POST['contents']
     item = Task(title = x, contents = y)
     item.save()
-    return redirect('')
+    return redirect('todosite')

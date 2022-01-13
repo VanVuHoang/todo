@@ -31,7 +31,6 @@
                             <div>
                                 {{ task.date }}
                                     <br/>
-                                    <!-- Cai form nay con dang fix -->
                                     <form action="/upd/{{ task.id }}" method="POST">
                                         {% csrf_token %}
                                         {{form}}

@@ -31,7 +31,12 @@ def removetask(request, item_id):
     return redirect('todosite')
 
 def updatetask(request, item_id):
+    # item = Task.objects.get(id=item_id)
+    # item.title = "Updated"
+    # item.save()
+    # return redirect('todosite')
+    subitem = "???"
     item = Task.objects.get(id=item_id)
-    item.title = "Updated"
+    item.title = subitem
     item.save()
     return redirect('todosite')

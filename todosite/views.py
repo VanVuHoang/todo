@@ -31,6 +31,12 @@ def removetask(request, item_id):
     item.delete()
     return redirect('todosite')
 
+def updatetask(request, item_id):
+    item = Task.objects.get(id=item_id)
+    item.title = "Updated"
+    item.save()
+    return redirect('todosite')
+
 def addtask(request):
     x = request.POST['title']
     y = request.POST['contents']

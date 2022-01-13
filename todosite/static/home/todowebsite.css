@@ -5,13 +5,61 @@
     background-color: none;
 }
 .TodoDiv1-1{
-    width: 50%;
+    width: 40%;
     float: left;
 }
 .TodoDiv1-2{
-    width: 50%;
+    width: 32%;
     float: left;
 }
-#rock{
-    background-image: url("home/img/rock1.jpg");
+#SetUpPara{
+    margin-top: 3%;
+    margin-left: 5%;
+}
+#SetUpTextArea{
+    margin-left: 5%;
+    width: 90%;
+}
+#SetUpButton{
+    background-color: lightpink; 
+    width: 30%; 
+    margin-top: 3%;
+}
+#SetUpTitle{
+    margin-top: 3.5%; 
+    margin-left: 3%; 
+    color: green;
+}
+#IntroTODOLIST{
+    margin-top: 30px; 
+    color: deeppink;
+}
+#TitleINPROGRESS{
+    color: red;
+}
+#StyleTaskList{
+    padding-left: 25%; 
+    margin-top: 4%;
+}
+#BGColor_218_213_213{
+    background-color: rgb(218, 213, 213);
+}
+#StyleTaskCard{
+    text-align: center; 
+    margin-left: 30px; 
+    margin-right: 30px;
+    background-color: white;
+    /* background-image: url(static/home/img/paperwall1.jpg); */
+}
+#UpdateButton{
+    background-color: blue; 
+    width: 60%; 
+    height: 4%; 
+    margin-left: -5%;
+}
+#DeleteButton{
+    background-color: red; 
+    width: 60%; 
+    height: 4%; 
+    margin-left: -5%;
 }

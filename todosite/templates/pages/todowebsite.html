@@ -1,5 +1,4 @@
 {% extends "pages/base.html" %}
-<!-- {% load crispy_forms_filters %} -->
 {% block title %}
     ToDo List
 {% endblock %}
@@ -52,10 +51,8 @@
         </div>
 
         <div class="TodoDiv1-2">
-            <!-- Add new task -->
             <form method="POST">
                 {% csrf_token %}
-                <!-- Format Set Up Task -->
                 <center><h3 id="SetUpTitle">Set Up Task</h3></center>
                 <p id="SetUpPara">Title</p>
                 <textarea id="SetUpTextArea" name="title"></textarea>

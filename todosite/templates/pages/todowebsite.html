@@ -39,7 +39,7 @@
                                             <span style="color: white;">Update</span>
                                         </button>
                                     </form>
-                                    <form action="/del/" method="POST">
+                                    <form action="/del/{{ task.id }}" method="POST">
                                         {% csrf_token %}
                                         {{form}}
                                         <button type="submit" id="DeleteButton" class="btn btn-default">
@@ -62,7 +62,7 @@
             <p id="SetUpPara">Contents</p>
             <textarea id="SetUpTextArea" name="contents" style="height: 100px;"></textarea>
             <!-- Add new task -->
-            <form action="/add/" method="POST">
+            <form method="POST">
                 {% csrf_token %}
                 {{form}}
                 <center><input type="submit" id="SetUpButton" class="btn btn-default" value="Submit"></center>

@@ -14,7 +14,7 @@ def submit(request):
             formtask = TaskForm(request.POST)
             if formtask.is_valid():
                 formtask.save()
-                return redirect('')
+                return redirect('todosite')
         formtask = TaskForm()
         page = {
             "formtask": formtask,

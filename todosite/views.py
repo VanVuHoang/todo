@@ -34,3 +34,10 @@ def deleteall(request):
     item = Task.objects.all()
     item.delete()
     return redirect('todosite')
+
+def updatetask(request):
+    if request.method == "POST":
+        item = Task.objects.get(title = request.POST.get('title'))
+        item.contents = request.POST.get('contents')
+        item.save()
+    return redirect ('todosite')

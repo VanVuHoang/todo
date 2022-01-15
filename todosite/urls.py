@@ -5,4 +5,5 @@ urlpatterns = [
     path('todosite/', views.submit, name="todosite"),
     path('del/<int:item_id>', views.removetask, name="delete"),
     path('delall/', views.deleteall, name="deleteall"),
+    path('todosite/upd/', views.updatetask, name="update"),
 ]

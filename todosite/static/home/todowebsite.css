@@ -5,7 +5,7 @@
     background-color: none;
 }
 .TodoDiv1-1{
-    width: 40%;
+    width: 45%;
     float: left;
 }
 .TodoDiv1-2{
@@ -38,8 +38,9 @@
     color: red;
 }
 #StyleTaskList{
-    padding-left: 25%; 
+    padding-left: 12%; 
     margin-top: 4%;
+    width: 500px;
 }
 #BGColor_218_213_213{
     background-color: rgb(218, 213, 213);
@@ -49,17 +50,19 @@
     margin-left: 30px; 
     margin-right: 30px;
     background-color: white;
-    /* background-image: url(static/home/img/paperwall1.jpg); */
+    width: 90%;
 }
 #UpdateButton{
     background-color: blue; 
-    width: 60%; 
+    width: 30%; 
     height: 4%; 
-    margin-left: -5%;
+    margin-left: -1%;
+    display: inline-block;
 }
 #DeleteButton{
     background-color: red; 
-    width: 60%; 
+    width: 30%; 
     height: 4%; 
-    margin-left: -5%;
+    margin-left: -1%;
+    display: inline-block;
 }

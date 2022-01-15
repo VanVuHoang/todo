@@ -9,7 +9,7 @@ from django.views.generic import TemplateView
 
 def submit(request):
     try:
-        task_list = Task.objects.all()
+        task_list = Task.objects.all().order_by('-date')
         if request.method == "POST":
             formtask = TaskForm(request.POST)
             if formtask.is_valid():
@@ -31,12 +31,12 @@ def removetask(request, item_id):
     return redirect('todosite')
 
 def updatetask(request, item_id):
-    # item = Task.objects.get(id=item_id)
-    # item.title = "Updated"
-    # item.save()
-    # return redirect('todosite')
-    subitem = "???"
     item = Task.objects.get(id=item_id)
-    item.title = subitem
+    item.title = "Updated"
     item.save()
+    return redirect('todosite')
+
+def deleteall(request):
+    item = Task.objects.all()
+    item.delete()
     return redirect('todosite')

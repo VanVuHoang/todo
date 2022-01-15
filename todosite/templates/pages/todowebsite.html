@@ -19,6 +19,10 @@
             </center>
             <div class="row" id="StyleTaskList">
                 <div class="col-md-8" id="BGColor_218_213_213">
+                    <form action="/delall/">
+                        <center><button type="submit" style="background-color: red; width: 258px; height: 40px; margin-top: 30px;" 
+                        class="btn btn-default"><span style="color: white;">Delete All</span></button></center>
+                    </form>
                     {% for task in task_list %}
                         <br/>
                         <div id="StyleTaskCard">
@@ -53,6 +57,8 @@
             <form method="POST">
                 {% csrf_token %}
                 <center><h3 id="SetUpTitle">Set Up Task</h3></center>
+                <p id="SetUpPara">ID</p>
+                <textarea id="SetUpTextArea" name="id"></textarea>
                 <p id="SetUpPara">Title</p>
                 <textarea id="SetUpTextArea" name="title"></textarea>
                 <p id="SetUpPara">Contents</p>

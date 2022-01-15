@@ -30,12 +30,6 @@
                             <div>
                                 {{ task.date }}
                                     <br/>
-                                    <!-- <form action="/upd/{{ task.id }}" method="POST">
-                                        {% csrf_token %}
-                                        <button type="submit" id="UpdateButton" class="btn btn-default">
-                                            <span style="color: white;">Update</span>
-                                        </button>
-                                    </form> -->
                                     <form action="/del/{{ task.id }}" method="POST">
                                         {% csrf_token %}
                                         <button type="submit" id="DeleteButton" class="btn btn-default">

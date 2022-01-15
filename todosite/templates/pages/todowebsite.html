@@ -14,14 +14,11 @@
 
     <div class="TodoDiv1">
         <div class="TodoDiv1-1">
-            <center class="row" style="text-align: center">
-                <h1 id="TitleINPROGRESS"><i>In Progress</i></h1>
-            </center>
+            <center><h1 id="TitleINPROGRESS"><i>In Progress</i></h1></center>
             <div class="row" id="StyleTaskList">
-                <div class="col-md-8" id="BGColor_218_213_213">
+                <div class="col-md-8" id="StyleBorder">
                     <form action="/delall/">
-                        <center><button type="submit" style="background-color: red; width: 258px; height: 40px; margin-top: 30px;" 
-                        class="btn btn-default"><span style="color: white;">Delete All</span></button></center>
+                        <center><button type="submit" id="DeleteAllButton" class="btn btn-default"><span style="color: white;">Delete All</span></button></center>
                     </form>
                     {% for task in task_list %}
                         <br/>
@@ -33,12 +30,12 @@
                             <div>
                                 {{ task.date }}
                                     <br/>
-                                    <form action="/upd/{{ task.id }}" method="POST">
+                                    <!-- <form action="/upd/{{ task.id }}" method="POST">
                                         {% csrf_token %}
                                         <button type="submit" id="UpdateButton" class="btn btn-default">
                                             <span style="color: white;">Update</span>
                                         </button>
-                                    </form>
+                                    </form> -->
                                     <form action="/del/{{ task.id }}" method="POST">
                                         {% csrf_token %}
                                         <button type="submit" id="DeleteButton" class="btn btn-default">
@@ -46,7 +43,7 @@
                                         </button>
                                     </form>
                             </div>
-                            <div id="BGColor_218_213_213"><br/></div>
+                            <div id="StyleBorder" style="width: 100%;"><br/></div>
                         </div>
                     {% endfor %}
                 </div>
@@ -56,14 +53,28 @@
         <div class="TodoDiv1-2">
             <form method="POST">
                 {% csrf_token %}
-                <center><h3 id="SetUpTitle">Set Up Task</h3></center>
-                <p id="SetUpPara">ID</p>
-                <textarea id="SetUpTextArea" name="id"></textarea>
+                <center><h2 id="SetUpTitle">Set Up Task</h2></center>
                 <p id="SetUpPara">Title</p>
                 <textarea id="SetUpTextArea" name="title"></textarea>
                 <p id="SetUpPara">Contents</p>
                 <textarea id="SetUpTextArea" name="contents" style="height: 100px;"></textarea>
-                <center><input type="submit" id="SetUpButton" class="btn btn-default" value="Submit"></center>
+                <center>
+                <input type="submit" id="SubmitButton" style="background-color: rgb(0, 255, 106);" class="btn btn-default" value="Submit">
+                </center>
+            </form>
+        </div>
+
+        <div class="TodoDiv1-3">
+            <form method="POST">
+                {% csrf_token %}
+                <center><h2 id="SetUpTitle">Update Task</h2></center>
+                <p id="SetUpPara">Title</p>
+                <textarea id="SetUpTextArea" name="title"></textarea>
+                <p id="SetUpPara">Contents</p>
+                <textarea id="SetUpTextArea" name="contents" style="height: 100px;"></textarea>
+                <center>
+                <input type="submit" id="SubmitButton" style="background-color: rgb(0, 183, 255);" class="btn btn-default" value="Update">
+                </center>
             </form>
         </div>
     </div>

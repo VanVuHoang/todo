@@ -81,3 +81,9 @@
     margin-left: 70%;
     display: inline-block;
 }
+#SubmitButton2{
+    color: white;
+    width: 60%; 
+    height: 30%;
+    margin-top: 3%;
+}

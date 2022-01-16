@@ -14,7 +14,7 @@
 
     <div class="TodoDiv1">
         <div class="TodoDiv1-1">
-            <center><h1 id="TitleINPROGRESS"><i>In Progress</i></h1></center>
+            <center><h1 id="TitleINPROGRESS"><i>To Do</i></h1></center>
             <div class="row" id="StyleTaskList">
                 <div class="col-md-8" id="StyleBorder">
                     <form action="/delall/">
@@ -30,7 +30,7 @@
                             <div>
                                 {{ task.date }}
                                     <br/>
-                                    <form action="/del/{{ task.id }}" method="POST">
+                                    <form action="/del/{{ task.id }}">
                                         {% csrf_token %}
                                         <button type="submit" id="DeleteButton" class="btn btn-default">
                                             <span style="color: white;">Delete</span>
@@ -64,7 +64,7 @@
                 <center><h2 id="SetUpTitle">Update Task</h2></center>
                 <p id="SetUpPara">Title</p>
                 <textarea id="SetUpTextArea" name="title"></textarea>
-                <p id="SetUpPara">Contents</p>
+                <p id="SetUpPara">Contents</p> 
                 <textarea id="SetUpTextArea" name="contents" style="height: 100px;"></textarea>
                 <center>
                 <input type="submit" id="SubmitButton" style="background-color: rgb(0, 183, 255);" class="btn btn-default" value="Update">

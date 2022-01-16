@@ -25,19 +25,22 @@ def submit(request):
         raise Http404("Task does not exist")
     return render(request, 'pages/todowebsite.html', page)
 
-def removetask(request, item_id):
-    item = Task.objects.get(id=item_id)
-    item.delete()
-    return redirect('todosite')
-
 def deleteall(request):
     item = Task.objects.all()
     item.delete()
     return redirect('todosite')
 
 def updatetask(request):
-    if request.method == "POST":
-        item = Task.objects.get(title = request.POST.get('title'))
-        item.contents = request.POST.get('contents')
-        item.save()
+    item = Task.objects.get(title = request.POST.get('title'))
+    item.contents = request.POST.get('contents')
+    item.save()
     return redirect ('todosite')
+
+def removetask(request, item_id):
+    item = Task.objects.get(id=item_id)
+    page = {"item": item}
+    if request.method == "POST":
+        item.delete()
+        return redirect('todosite')
+    return render(request, 'pages/delete.html', page)
+

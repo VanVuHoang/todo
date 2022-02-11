@@ -27,14 +27,21 @@ def submit(request):
 
 def deleteall(request):
     item = Task.objects.all()
-    item.delete()
-    return redirect('todosite')
+    page = {"item": item}
+    if request.method == "POST":
+        item.delete()
+        return redirect('todosite')
+    return render(request, 'pages/delete.html', page)
 
-def updatetask(request):
-    item = Task.objects.get(title = request.POST.get('title'))
-    item.contents = request.POST.get('contents')
-    item.save()
-    return redirect ('todosite')
+def updatetask(request, item_id):
+    item = Task.objects.get(id=item_id)
+    page = {"item": item}
+    if request.method == "POST":
+        item.title = request.POST.get('title')
+        item.contents = request.POST.get('contents')
+        item.save()
+        return redirect ('todosite')
+    return render(request, 'pages/update.html', page)
 
 def removetask(request, item_id):
     item = Task.objects.get(id=item_id)

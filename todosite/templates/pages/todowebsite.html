@@ -6,14 +6,14 @@
 {% block content %}
 <div class="TodoDiv">
     <div class="Intro">
-        <center class="row" style="text-align: center">
+    <center class="row" style="text-align: center;">
             <h1 id="IntroTODOLIST"><i>TODO LIST</i></h1>
     </center>
         <hr>
     </div>
 
     <div class="TodoDiv1">
-        <div class="TodoDiv1-1"style="margin-left: -1%">
+        <div class="TodoDiv1-1" style="margin-left: -1%">
             <center><h1 id="TitleINPROGRESS" style="margin-left: 30%"><i>To Do</i></h1></center>
             <div class="row" id="StyleTaskList">
                 <div class="col-md-8" id="StyleBorder" style="width: 150%">
@@ -30,7 +30,7 @@
                             <div>
                                 {{ task.date }}
                                     <br/>
-                                    <form action="upd/{{task.id}}">
+                                    <form action="/upd/{{task.id}}">
                                         {% csrf_token %}
                                         <button type="submit" id="UpdateButton" class="btn btn-default" style="margin-left: 70%">
                                             <span style="color: white;">Update</span>
@@ -58,9 +58,7 @@
                 <textarea id="SetUpTextArea" name="title" style="height: 100px;"></textarea>
                 <p id="SetUpPara">Contents</p>
                 <textarea id="SetUpTextArea" name="contents" style="height: 100px;"></textarea>
-                <center>
-                <input type="submit" id="SubmitButton" style="background-color: rgb(0, 255, 106);" class="btn btn-default" value="Submit">
-                </center>
+                <center><input type="submit" id="SubmitButton" style="background-color: rgb(0, 255, 106);" class="btn btn-default" value="Submit"></center>
             </form>
         </div>
     </div>

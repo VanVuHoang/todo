@@ -43,7 +43,7 @@ def updatetask(request, item_id):
         return redirect ('todosite')
     return render(request, 'pages/update.html', page)
 
-def removetask(request, item_id):
+def deletetask(request, item_id):
     item = Task.objects.get(id=item_id)
     page = {"item": item}
     if request.method == "POST":
@@ -51,3 +51,6 @@ def removetask(request, item_id):
         return redirect('todosite')
     return render(request, 'pages/delete.html', page)
 
+def site(request):
+    response = redirect('todosite')
+    return response

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Task, Finish
+from .models import Task
 
 
 class TaskForm(forms.ModelForm):
@@ -7,7 +7,3 @@ class TaskForm(forms.ModelForm):
         model = Task
         fields = "__all__"
 
-class FinishForm(forms.ModelForm):
-    class Meta:
-        model = Finish
-        fields = "__all__"

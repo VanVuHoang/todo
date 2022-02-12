@@ -1,0 +1,26 @@
+{% extends "pages/base.html" %}
+{% block title %}
+    ToDo List
+{% endblock %}
+
+{% block content %}
+<div class="TodoDiv">
+    <div class="Intro">
+        <center class="row" style="text-align: center">
+            <h1 id="IntroTODOLIST"><i>TODO LIST</i></h1>
+        </center>
+        <hr>
+    </div>
+
+    <div class="TodoDiv1-3" style="margin-left: 36.5%">
+        <form action="/upd/{{item.id}}" method="POST">
+            {% csrf_token %}
+            <center><h2 id="SetUpTitle">Update Task</h2></center>
+            <p id="SetUpPara">Title (Original title: {{item.title}})</p> 
+            <textarea id="SetUpTextArea" name="title" style="height: 100px;"></textarea>
+            <p id="SetUpPara">Contents (Original contents: {{item.contents}})</p> 
+            <textarea id="SetUpTextArea" name="contents" style="height: 100px;"></textarea>
+            <center><input type="submit" id="SubmitButton" style="background-color: rgb(0, 183, 255);" class="btn btn-default" value="Update"></center>
+        </form>
+    </div>
+{% endblock %}

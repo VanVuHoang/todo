@@ -1,90 +1,66 @@
-{% extends "pages/base2.html" %}
+{% extends "pages/base.html" %}
 {% block title %}
     ToDo List
 {% endblock %}
 
-{% block intro %}
-    <center class="row" style="text-align: center">
-        <h1 style="margin-top: 30px; color: deeppink"><i>TODO LIST</i></h1>
+{% block content %}
+<div class="TodoDiv">
+    <div class="Intro">
+    <center class="row" style="text-align: center;">
+            <h1 id="IntroTODOLIST"><i>TODO LIST</i></h1>
     </center>
-    <hr>
-{% endblock %}
+        <hr>
+    </div>
 
-{% block worklist %}
-        <center class="row" style="text-align: center">
-            <h1 style="margin-top: 30px; margin-left: 30px; color: pink"><i>IN PROGRESS</i></h1>
-        </center>
-        <div class="row" style="padding-left: 200px; margin-top: 30px;">
-            <div class="col-md-8">
-                {% for task in task_list %}
-                    <div class="card" style="text-align: center; background-color: pink;">
-                            <b style="margin-top: 10px">{{ task.title }}</b>
+    <div class="TodoDiv1">
+        <div class="TodoDiv1-1" style="margin-left: -1%">
+            <center><h1 id="TitleINPROGRESS" style="margin-left: 30%"><i>To Do</i></h1></center>
+            <div class="row" id="StyleTaskList">
+                <div class="col-md-8" id="StyleBorder" style="width: 150%">
+                    <form action="/del/">
+                        <center><button type="submit" id="DeleteAllButton" class="btn btn-default"><span style="color: white;">Delete All</span></button></center>
+                    </form>
+                    {% for task in task_list %}
+                        <br/>
+                        <div id="StyleTaskCard">
+                            <b style="margin-top: 2%">{{ task.title }}</b>
                             <hr>
                             {{ task.contents }}
                             <hr>
                             <div>
                                 {{ task.date }}
-                                <form action="/del/{{ task.id }}" method="POST">
-                                    {% csrf_token %}
-                                    <right></right><button type="submit" style="background-color: red; width: 40px; height: 40px; 
-                                    margin-left: 223px;" class="btn btn-default"></button>
-                                </form>
+                                    <br/>
+                                    <form action="/upd/{{task.id}}">
+                                        {% csrf_token %}
+                                        <button type="submit" id="UpdateButton" class="btn btn-default" style="margin-left: 70%">
+                                            <span style="color: white;">Update</span>
+                                        </button>
+                                    </form>
+                                    <form action="/del/{{task.id}}">
+                                        {% csrf_token %}
+                                        <button type="submit" id="DeleteButton" class="btn btn-default">
+                                            <span style="color: white;">Delete</span>
+                                        </button>
+                                    </form>
                             </div>
-                            <center><div style="background-color: white; height: 20px; width: 326px; margin-left: -2.5px;">
-                            </div></center>
-                    </div>
-                {% endfor %}
+                            <div id="StyleBorder" style="width: 100%;"><br/></div>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
 
-{% endblock %}
-
-{% block button %}
-<form action="/setuptask/">
-    {% csrf_token %}
-    <center>
-        <input value="Set Up Task" type="submit" style="background-color: orange; width: 200px; height: 40px; 
-        margin-top: 30px;" class="btn btn-default">
-        </input>
-    </center>
-</form>
-{% endblock %}
-
-{% block button2 %}
-<form action="/admin/">
-    {% csrf_token %}
-    <center>
-        <input value="Admin" type="submit" style="background-color: orange; width: 200px; height: 40px; 
-        margin-top: 30px;" class="btn btn-default">
-        </input>
-    </center>
-</form>
-{% endblock %}
-
-{% block input %}
-        <center class="row" style="text-align: center">
-            <h1 style="margin-top: 30px; margin-left: -45px; color: deepskyblue"><i>COMPLETE</i></h1>
-        </center>
-        <div class="row" style="padding-left: 130px; padding-right: 70px; margin-top: 30px;">
-            <div class="col-md-8">
-                {% for task in task_list %}
-                    <div class="card" style="text-align: center; background-color: cyan;">
-                            <b style="margin-top: 10px">{{ task.title }}</b>
-                            <hr>
-                            {{ task.contents }}
-                            <hr>
-                            <div>
-                                {{ task.date }}
-                                <form action="/del/{{ task.id }}/" method="POST">
-                                    {% csrf_token %}
-                                    <button type="submit" style="background-color: red; width: 40px; height: 40px; 
-                                    margin-left: 223px;" class="btn btn-default"></button>
-                                </form>
-                            </div>
-                            <center><div style="background-color: white; height: 20px; width: 326px; margin-left: -2.5px;">
-                            </div></center>
-                    </div>
-                {% endfor %}
-            </div>
+        <div class="TodoDiv1-2" style="margin-left: 15%">
+            <form method="POST">
+                {% csrf_token %}
+                <center><h2 id="SetUpTitle">Set Up Task</h2></center>
+                <p id="SetUpPara">Title</p>
+                <textarea id="SetUpTextArea" name="title" style="height: 100px;"></textarea>
+                <p id="SetUpPara">Contents</p>
+                <textarea id="SetUpTextArea" name="contents" style="height: 100px;"></textarea>
+                <center><input type="submit" id="SubmitButton" style="background-color: rgb(0, 255, 106);" class="btn btn-default" value="Submit"></center>
+            </form>
         </div>
+    </div>
+</div>
 {% endblock %}

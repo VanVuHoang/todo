@@ -1,0 +1,28 @@
+{% extends "pages/base.html" %}
+{% block title %}
+    ToDo List
+{% endblock %}
+
+{% block content %}
+<div class="TodoDiv">
+    <div class="Intro">
+        <center class="row" style="text-align: center">
+            <h1 id="IntroTODOLIST"><i>TODO LIST</i></h1>
+        </center>
+        <hr>
+    </div>
+
+    <div class="TodoDiv1">
+        <center>
+            <h2>Do you want to delete?</h2>
+            <form action="/todosite/">
+                {% csrf_token %}
+                <input type="submit" style="background-color: #ffcc00; width: 30%; height: 50px;" class="btn btn-default" value="Cancel">
+            </form>
+            <form action="/del/{{item.id}}" method="POST">
+                {% csrf_token %}
+                <input type="submit" style="background-color: red; width: 30%; height: 50px;" class="btn btn-default" value="Delete">
+            </form>
+        </center>
+    </div>
+{% endblock %}
